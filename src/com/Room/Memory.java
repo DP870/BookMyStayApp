@@ -34,7 +34,7 @@ public void updatePrice(String type, double p) {
     }
 }
 public void find() {
-	        System.out.println("\n--- Current Room Inventory ---");
+	        System.out.println("Current Room Inventory");
 	        for (String type :count.keySet()) {
 	            int c1 = count.get(type);
 	            double p1 = price.get(type);
@@ -43,10 +43,23 @@ public void find() {
 	        }
 	    
 	    }
+
+public void search(String type) {
+        for (String match :count.keySet()) {
+        	if (match.equals(type)) {
+        int c1 = count.get(type);
+        double p1 = price.get(type);
+        System.out.println("Count of "+type+" Rooms: " + c1 );
+        System.out.println("Price of "+type+" Room:" + p1);
+    }
+        }
+
+}
 	
 	 
 	 
 	    
 	    
-	    
 }
+
+

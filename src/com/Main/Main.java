@@ -1,5 +1,17 @@
-package com.Room;
+package com.Main;
 import java.util.*;
+
+import com.Room.Memory;
+import com.Room.RoomType;
+import com.Room.*;
+
+
+/*
+ * Entry Point for the BookmyStayApp
+ * @author Dhruv
+ * @version 1.0
+ * 
+ */
 public class Main {
 
 	public static void main(String[] args) {
@@ -21,6 +33,8 @@ public class Main {
 			System.out.println("1. Check count and price of rooms");
 			System.out.println("2. Update Room Count");
 			System.out.println("3. Update Room Price");
+			System.out.println("4. Search Room Availability");
+			
 			
 			
 			System.out.println("Choice: ");
@@ -53,8 +67,14 @@ public class Main {
 			System.out.println("System Updated");
 			
 
+	}	else if (ch==3) {
+		System.out.println("Enter the room type: ");
+		String type=sc.next();
+		mem.search(type);
+        }
+		
 	}
 
 	}
 	}
-}
+
