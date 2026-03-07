@@ -1,4 +1,4 @@
-package com.Room;
+package com.Inventory;
 import java.util.*;
 
 public class Memory {
@@ -56,7 +56,17 @@ public void search(String type) {
 
 }
 	
-	 
+
+public boolean exist(String type) {
+        for (String match :count.keySet()) {
+        	if (match.equals(type) && count.get(type)>=1) {
+        return true;
+    }
+        }
+        return false;
+
+}
+		 
 	 
 	    
 	    
