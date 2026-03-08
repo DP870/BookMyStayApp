@@ -21,11 +21,12 @@ public class QueueStructure {
             System.out.println("The queue is currently empty.");
         } else {
             int position = 1;
-
+            System.out.println("Reservation Queue:");
             for (Reservation res : bookings) {
                 System.out.println(position + ". " + res.toString());
                 position++;
             }
+            System.out.println("");
         }
 
     }

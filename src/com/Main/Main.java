@@ -45,7 +45,8 @@ public class Main {
 			System.out.println("5. Add Reservation to  Queue");
 			System.out.println("6. Make Reservation");
 			System.out.println("7. Add services to reservation");
-			
+			System.out.println("8. View Entire Booking History");
+			System.out.println("9. View Additonal Service Booking History");
 			
 			System.out.println("Choice: ");
 			int ch2=sc.nextInt();
@@ -77,12 +78,12 @@ public class Main {
 			System.out.println("System Updated");
 			
 
-	}	else if (ch==4) {
+	}	else if (ch2==4) {
 		System.out.println("Enter the room type: ");
 		String type=sc.next();
 		mem.search(type);
         }
-	else if (ch==5) {     //
+	else if (ch2==5) {     //
 		 System.out.print("\nEnter Booking Name: ");
 	        String name = sc.next();
 	        
@@ -101,7 +102,7 @@ public class Main {
 	        requestsQueue.add(request);
 	        }
 	    }
-	else if (ch==6) {
+	else if (ch2==6) {
 		System.out.print("Enter Booking Name: ");
         String name = sc.next();
         
@@ -114,7 +115,7 @@ public class Main {
         Reservation res = new Reservation(name, roomType);
         allocation.assignRoom(res, no);
 	}
-	else if (ch==7) {
+	else if (ch2==7) {
 		System.out.print("Enter Booking Name: ");
         String name = sc.next();
         
@@ -122,6 +123,17 @@ public class Main {
         String service = sc.next();
         
         manager.addService(name, service);
+	}
+	else if (ch2==8) {
+		requestsQueue.displayQueue();
+		allocation.seeAssignment();
+		
+	}
+	else if (ch2==9) {
+		System.out.print("Enter Booking Name: ");
+		String username=sc.next();
+		manager.displayGuestServices(username);
+		
 	}
 	}
 		

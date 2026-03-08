@@ -24,9 +24,11 @@ public class Allocation {
 				System.out.println("Allocations empty.");
 			}
 			else {
+			    System.out.println("Assigned Room HashMap");
 				for (String name:assigned.keySet()) {
 					System.out.println("Guest Name: "+name+"Room No: "+assigned.get(name));
 				}
+			    System.out.println("");
 			}
 		}
 	
