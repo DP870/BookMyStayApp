@@ -3,6 +3,7 @@ import java.util.*;
 
 import com.Inventory.Memory;
 import com.Reservation.Allocation;
+import com.Reservation.Manager;
 import com.Reservation.QueueStructure;
 import com.Reservation.Reservation;
 import com.Room.*;
@@ -11,15 +12,19 @@ import com.Room.*;
 /*
  * Entry Point for the BookmyStayApp
  * @author Dhruv
- * @version 3.0
+ * @version 5.0
  * 
  */
 public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
+		
+		// Intializing different objects and varaibles 
+		Manager manager=new Manager();
 		Allocation allocation=new Allocation();
 		QueueStructure requestsQueue=new QueueStructure();
+		
 		
 		int ch=1;
 		
@@ -39,6 +44,7 @@ public class Main {
 			System.out.println("4. Search Room Availability");
 			System.out.println("5. Add Reservation to  Queue");
 			System.out.println("6. Make Reservation");
+			System.out.println("7. Add services to reservation");
 			
 			
 			System.out.println("Choice: ");
@@ -107,6 +113,15 @@ public class Main {
         
         Reservation res = new Reservation(name, roomType);
         allocation.assignRoom(res, no);
+	}
+	else if (ch==7) {
+		System.out.print("Enter Booking Name: ");
+        String name = sc.next();
+        
+        System.out.print("Enter Service Type : ");
+        String service = sc.next();
+        
+        manager.addService(name, service);
 	}
 	}
 		
