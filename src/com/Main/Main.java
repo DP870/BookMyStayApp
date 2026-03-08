@@ -2,6 +2,7 @@ package com.Main;
 import java.util.*;
 
 import com.Inventory.Memory;
+import com.Reservation.Allocation;
 import com.Reservation.QueueStructure;
 import com.Reservation.Reservation;
 import com.Room.*;
@@ -17,15 +18,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		
+		Allocation allocation=new Allocation();
 		QueueStructure requestsQueue=new QueueStructure();
 		
 		int ch=1;
 		
-		
+		// Intializing different objects
 		RoomType singleRoom=new RoomType(101,1,"Single");
 		RoomType doubleRoom=new RoomType(201,2,"Double");
 		RoomType thirdRoom=new RoomType(301,3,"Suite");
+		
 		Memory mem=new Memory();
 		
 		
@@ -35,8 +37,8 @@ public class Main {
 			System.out.println("2. Update Room Count");
 			System.out.println("3. Update Room Price");
 			System.out.println("4. Search Room Availability");
-			System.out.println("4. Make Reservation");
-			
+			System.out.println("5. Add Reservation to  Queue");
+			System.out.println("6. Make Reservation");
 			
 			
 			System.out.println("Choice: ");
@@ -46,19 +48,19 @@ public class Main {
 				
 				mem.find(); //Prints the count of the room.
 				
-		}	else if (ch2==2) {
+		}	else if (ch2==2) {  //Updates the count of the room
 			
 			System.out.println("Enter the room type: ");
 			String roomCode=sc.next();
 			
-			System.out.println("Enter the updated value: ");
+			System.out.println("Enter the updated count: ");
 			int newcount=sc.nextInt();
 			mem.updateCount(roomCode,newcount);
 			System.out.println("System Updated");
 			
 			
 			
-		}	else if (ch2==2) {
+		}	else if (ch2==3) {    //Updates the price of the room
 			
 			System.out.println("Enter the room type: ");
 			String roomCode=sc.next();
@@ -69,17 +71,17 @@ public class Main {
 			System.out.println("System Updated");
 			
 
-	}	else if (ch==3) {
+	}	else if (ch==4) {
 		System.out.println("Enter the room type: ");
 		String type=sc.next();
 		mem.search(type);
         }
-	else if (ch==4) {
+	else if (ch==5) {     //
 		 System.out.print("\nEnter Booking Name: ");
-	        String name = sc.nextLine();
+	        String name = sc.next();
 	        
 	        System.out.print("Enter Room Type: ");
-	        String roomType = sc.nextLine();
+	        String roomType = sc.next();
 	        
 	
 	        if (!mem.exist(roomType)) {
@@ -93,6 +95,19 @@ public class Main {
 	        requestsQueue.add(request);
 	        }
 	    }
+	else if (ch==6) {
+		System.out.print("Enter Booking Name: ");
+        String name = sc.next();
+        
+        System.out.print("Enter Room Type: ");
+        String roomType = sc.next();
+        
+        System.out.print("Enter Room Number: ");
+        int no = sc.nextInt();
+        
+        Reservation res = new Reservation(name, roomType);
+        allocation.assignRoom(res, no);
+	}
 	}
 		
 	}
